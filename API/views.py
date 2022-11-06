@@ -100,9 +100,7 @@ def delete(request):
     return HttpResponse("OK")
 
 
-def writeToFile(data, filename): #unused
-    with open(filename, 'wb') as file:
-        file.write(data)
+
 
 def saveFileToDatabase(): #unused
     # where r = reading, b = binary
@@ -113,9 +111,4 @@ def saveFileToDatabase(): #unused
     model.content = image
     model.save()
 
-def saveDatabaseToFile(): #unused
-    # works with saveFileToDatabase
-    model = Image.objects.get(id = 2)
-    byteData = model.content
-    writeToFile(byteData, "Saved.jpg")
 

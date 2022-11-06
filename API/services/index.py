@@ -35,6 +35,13 @@ def index(imageCollection):
         # write the features to file
         features = [str(f) for f in features]
         output.write("%s,%s\n" % (item['id'], ",".join(features)))
+    # close the index file
+    output.close()
+
+
+def indexFromFolder():
+    cd = ColorDescriptor((8, 12, 3))
+    output = open('index.csv', "w")
     for imagePath in glob.glob('dataset' + "/*.jpg"):
         # extract the image ID (i.e. the unique filename) from the image
         # path and load the image itself
@@ -52,7 +59,6 @@ def index(imageCollection):
         # write the features to file
         features = [str(f) for f in features]
         output.write("%s,%s\n" % (model.id, ",".join(features)))
-    # close the index file
     output.close()
 
 

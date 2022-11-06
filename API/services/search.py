@@ -17,7 +17,7 @@ def search(query_image):
     features = cd.describe(query)
     # perform the search
     searcher = Searcher("index.csv")
-    results = searcher.search(features)
+    results = searcher.search(features, 20)
     # loop over the results
     data = []
     for (score, resultID) in results:
